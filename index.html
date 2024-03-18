@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <style type="text/css">
+      /* .uiInput.uiInputText.uiInput--default.uiInput--input {
+        display: none;
+      } */
+
+      img[embeddedService-chatHeader_chatHeader] {
+        max-width: 30px;
+      }
+
+      .embeddedServiceSidebarMinimizedDefaultUI {
+        background-color: #262626 !important;
+        border-color: #262626 !important;
+        min-width: 8em;
+        max-width: 8em;
+        text-transform: none;
+        padding: 0px;
+      }
+
+      @media only screen and (min-width: 600px) {
+        .embeddedServiceHelpButton .helpButton .uiButton {
+          border-radius: 0px !important;
+          padding: 8px 16px 8px 16px !important;
+          gap: 8px !important;
+        }
+
+        .embeddedServiceSidebarMinimizedDefaultUI.sidebarHeader {
+          min-width: 42px !important;
+          max-width: 42px !important;
+          right: 12px !important;
+          bottom: 58px !important;
+          border-radius: 25px;
+        }
+
+        .embeddedServiceHelpButton .helpButton {
+          right: 12px;
+          width: 0px !important;
+          bottom: 58px;
+        }
+
+        .embeddedServiceHelpButton .helpButton .uiButton:before {
+          border-radius: 0px !important;
+          padding: 8px 16px 8px 16px !important;
+          gap: 8px !important;
+        }
+
+        .embeddedServiceHelpButton
+          .helpButton
+          .helpButtonEnabled:hover::before {
+          height: inherit !important;
+          width: inherit !important;
+        }
+        .embeddedServiceSidebarMinimizedDefaultUI .embeddedServiceIcon {
+          margin-right: 0px;
+          font-size: 19px;
+          padding-left: 0px;
+        }
+
+        .embeddedServiceSidebarMinimizedDefaultUI .minimizedText {
+          display: none;
+        }
+      }
+      @media only screen and (max-width: 600px) {
+        .embeddedServiceHelpButton .helpButton .uiButton {
+          width: 50px !important;
+          height: 50px !important;
+          min-width: 45px !important;
+          border-radius: 30px !important;
+          box-shadow: none !important;
+        }
+        .embeddedServiceSidebarMinimizedDefaultUI.sidebarHeader {
+          min-width: 42px !important;
+          max-width: 42px !important;
+          right: 12px !important;
+          bottom: 58px !important;
+          border-radius: 25px;
+        }
+
+        .embeddedServiceHelpButton .helpButton {
+          width: 0px !important;
+          bottom: 58px;
+          border-radius: 30px;
+        }
+
+        .embeddedServiceHelpButton
+          .helpButton
+          .helpButtonEnabled:hover::before {
+          height: inherit !important;
+          width: inherit !important;
+          background-color: none !important;
+          content: none !important;
+        }
+
+        .embeddedServiceSidebarMinimizedDefaultUI .embeddedServiceIcon {
+          margin-right: 0px;
+          font-size: 19px;
+          padding-left: 0px;
+        }
+
+        .embeddedServiceSidebarMinimizedDefaultUI .minimizedText {
+          display: none;
+        }
+      }
+
+      .embeddedServiceHelpButton .embeddedServiceIcon {
+        content: url('https://vfeurope.lightning.force.com/servlet/servlet.ImageServer?id=015TE000001Gm05&oid=00Db0000000dbnM');
+        width: 24px !important;
+        height: 24px !important;
+        margin-right: 0px;
+      }
+
+      .embeddedServiceSidebarMinimizedDefaultUI.sidebarHeader {
+        right: 70px;
+      }
+
+      .embeddedServiceSidebarMinimizedDefaultUI .minimizedImage img,
+      .embeddedServiceSidebarMinimizedDefaultUI .minimizedImage .uiImage {
+        width: 20px;
+        height: 20px;
+        border-radius: 0%;
+      }
+
+      .embeddedServiceSidebarMinimizedDefaultUI .messageContent {
+        margin: 0px;
+      }
+
+      .embeddedServiceLiveAgentStateChat .messageArea:focus {
+        border: 1px solid #262626;
+      }
+
+      .embeddedServiceLiveAgentStateChatItem .isLightningOutContext .avatar {
+        border: 1px solid black;
+        border-radius: 50%;
+      }
+
+      .embeddedServiceHelpButton .helpButton .uiButton {
+        background-color: #000;
+        font-family: 'Roboto', Verdana, Arial, Helvetica, sans-serif;
+        min-width: 8em;
+        text-transform: none;
+        font-size: 14px;
+      }
+
+      .embeddedServiceHelpButton .helpButton {
+        right: 70px;
+      }
+
+      .embeddedServiceSidebar.layout-docked .dockableContainer,
+      .embeddedServiceSidebar.layout-float .dockableContainer {
+        border-radius: 25px;
+      }
+
+      .embeddedServiceHelpButton.startButton.uiButton {
+        font-size: 13px;
+        font-family: 'Roboto', Verdana, Arial, Helvetica, sans-serif;
+      }
+
+      .embeddedServiceSidebarButton.startButton.uiButton {
+        font-family: 'Roboto', Verdana, Arial, Helvetica, sans-serif;
+        background: #2d2c2f;
+      }
+
+      .embeddedServiceLiveAgentStateChatPlaintextMessageDefaultUI.chasitor.plaintextContent {
+        background: #262626;
+      }
+
+      .embeddedServiceSidebarDialogState .dialogButton {
+        background: #2d2c2f;
+      }
+
+      .sidebarHeader[embeddedService-chatHeader_chatHeader] {
+        background: #262626;
+      }
+
+      .embeddedServiceHelpButton .uiButton .helpButtonLabel .message {
+        padding: 0px;
+        font-size: 14px;
+        text-transform: none;
+        margin: 0px;
+        color: #fff;
+        font-weight: normal;
+      }
+
+      .embeddedServiceSidebarMinimizedDefaultUI.sidebarHeader {
+        height: 46px;
+        bottom: 0px;
+      }
+
+      .embeddedServiceSidebarMinimizedDefaultUI .minimizedText > .message {
+        font-size: 14px;
+        text-transform: none;
+        padding: 0px;
+      }
+
+      p[embeddedService-chatHeaderAnnouncement_chatHeaderAnnouncement] {
+        background: #f4f4f4;
+        color: #262626;
+      }
+
+      .embeddedServiceSidebar.modalContainer {
+        font-family: 'Roboto', Verdana, Arial, Helvetica, sans-serif;
+        background: #262626;
+      }
+
+      .embeddedServiceLiveAgentStateChatInputFooter
+        .chasitorText.textAreaIsFocused {
+        border-color: var(--lwc-colorBorderBrandSecondary, #262626);
+      }
+
+      .embeddedServiceLiveAgentStateChatInputFooter
+        .footerMenuWrapper
+        .footer-menu-items
+        .slds-truncate {
+        color: #262626;
+      }
+
+      .embeddedServiceSidebarButton:not(:disabled):focus,
+      .embeddedServiceSidebarButton:not(:disabled):hover {
+        background: #88b04b;
+        border: none;
+      }
+
+      .embeddedServiceSidebarButton.uiButton--inverse {
+        background: #262626 !important;
+        border: 1px solid #262626;
+      }
+
+      .embeddedServiceSidebarButton.uiButton--inverse .label {
+        color: #ffffff !important;
+      }
+
+      .embeddedServiceSidebarButton {
+        font-family: 'Roboto', Verdana, Arial, Helvetica, sans-serif;
+        text-transform: none;
+      }
+
+      /* .embeddedServiceHelpButton .helpButton .helpButtonDisabled {
+        display: none;
+      } */
+
+      h2[embeddedService-chatHeader_chatHeader] {
+        color: #fff;
+        font-family: 'Roboto', Verdana, Arial, Helvetica, sans-serif;
+        text-transform: none;
+      }
+
+      button[embeddedService-chatHeader_chatHeader] {
+        margin: 1rem 0 1rem 0 !important;
+        padding: 0.6em 0.4em !important;
+        outline: 0px !important;
+      }
+
+      .embeddedServiceSidebarMinimizedDefaultUI.minimizedContainer:focus {
+        text-decoration: none !important;
+      }
+
+      .embeddedServiceLoadingBalls .loadingBall {
+        background-color: var(--lwc-colorBrandPrimary, #262626);
+      }
+
+      .embeddedServiceSidebarMinimizedDefaultUI .content {
+        text-transform: none;
+        padding: 0px;
+      }
+
+      .embeddedServiceLiveAgentStateChatItem.chatMessage button {
+        font-family: 'Roboto', Verdana, Arial, Helvetica, sans-serif;
+      }
+
+      .embeddedServiceLiveAgentStateChatMenuMessage .rich-menu-item {
+        text-transform: none;
+        letter-spacing: 0px;
+      }
+
+      .embeddedServiceLiveAgentStateChatMenuMessage
+        .rich-menu-itemOptionIsClicked {
+        text-transform: none;
+        letter-spacing: 0px;
+      }
+
+      .embeddedServiceLiveAgentStateChatAvatar.isLightningOutContext
+        .agentIconColor2 {
+        background-color: #2a2a2a;
+      }
+
+      .chasitor.chat-content[CLWCP-lwcchatpack_lwcchatpack] {
+        background: #262626;
+      }
+
+      div.chat-content.chasitor a:-webkit-any-link {
+        color: #fff;
+      }
+
+      .agent.chat-content[CLWCP-lwcchatpack_lwcchatpack] {
+        text-align: left;
+      }
+
+      .embeddedServiceLiveAgentStateChatBubble.chasitor .chatContent {
+        background: #88b04b;
+      }
+
+      .chasitor.chat-content[CLWCP-lwcchatpack_lwcchatpack] {
+        text-align: left;
+      }
+
+      .slds-icon_x-small {
+        width: 25px;
+        height: 25px;
+      }
+
+      .closeButton,
+      .minimizeButton {
+        padding: 0;
+      }
+    </style>
+
+    <script
+      type="text/javascript"
+      src="https://service.force.com/embeddedservice/5.0/esw.min.js"
+    ></script>
+    <script type="text/javascript">
+      window.vflivechat = {};
+
+      window.vflivechat.live = 'prod';
+      window.vflivechat.Country = 'uk';
+      window.vflivechat.language = 'en';
+      window.vflivechat.pageType = 'contact-us';
+
+      window.vflivechat.orgId = '';
+      window.vflivechat.deploymentId = '';
+      window.vflivechat.buttonId = '';
+      window.vflivechat.baseLiveAgentURL = '';
+      window.vflivechat.baseLiveAgentContentURL = '';
+      window.vflivechat.SFURL_1 = '';
+      window.vflivechat.SFURL_2 = '';
+      window.vflivechat.js_path = '';
+      window.vflivechat.defaultButtonId = '';
+
+      window.vflivechat.PrivacyContent = '';
+      window.vflivechat.PrivacyURL = '';
+      var shopname =
+        window.vflivechat.Country + '-' + window.vflivechat.language;
+      var PrivacyURLLink =
+        'https://www.kipling.com/' + shopname + '/privacy-policy';
+      window.vflivechat.linktext = '';
+      window.vflivechat.emailLabel = '';
+      window.vflivechat.loadingtext = '';
+
+      window.vflivechatcontentshown = false;
+
+      var livechatProdObject = {
+        uk: {
+          buttonId: '5733X000000LlPl',
+          language: 'en',
+          loadingtext: 'loading',
+          emailLabel: 'Please enter your Email (optional)',
+          linktext: 'here',
+          PrivacyContent:
+            'we’ll use it to give you a more personalized support.By proceeding, you acknowledge you have read and understood our Privacy Policy ',
+          PrivacyURL: PrivacyURLLink,
+        },
+        it: {
+          buttonId: '5733X000000LlFn',
+          language: 'it',
+          loadingtext: 'Caricamento',
+          emailLabel: 'Per favore inserisci la tua email',
+          linktext: 'qui',
+          PrivacyContent:
+            'lo useremo per darti un supporto più personalizzato. Procedendendo dichiari di aver letto e compreso la nostra Privacy Policy ',
+          PrivacyURL: PrivacyURLLink,
+        },
+        de: {
+          buttonId: '5733X000000LlPq',
+          language: 'de',
+          loadingtext: 'Lädt',
+          emailLabel: 'Bitte geben Sie Ihre Email an (optional)',
+          linktext: 'hier',
+          PrivacyContent:
+            'wir werden es verwenden, um Ihnen eine persönlichere Unterstützung zu bieten. Durch das Fortfahren, bestätigen Sie, dass Sie unsere Datenschutzrichtlinie ',
+          PrivacyURL: PrivacyURLLink,
+        },
+        es: {
+          buttonId: '5733X000000LlFl',
+          language: 'es',
+          loadingtext: 'Cargando',
+          emailLabel: 'Por favor ingrese su correo electrónico (Opcional)',
+          linktext: 'aquí',
+          PrivacyContent:
+            'Lo usaremos para ofrecerte una asistencia más personalizada. Al continuar, reconoce que ha leído y comprendido nuestra Política de Privacidad ',
+          PrivacyURL: PrivacyURLLink,
+        },
+        fr: {
+          buttonId: '5733X000000LlFm',
+          language: 'fr',
+          loadingtext: 'Chargement en cours',
+          emailLabel: 'Veuillez saisir votre adresse e-mail',
+          linktext: 'ici',
+          PrivacyContent:
+            "Nous l'utiliserons pour vous apporter un soutien plus personnalisé. En poursuivant, vous reconnaissez avoir lu et compris notre politique de confidentialité ",
+          PrivacyURL: PrivacyURLLink,
+        },
+        nl: {
+          buttonId: '5733X000000LlFo',
+          language: 'nl_NL',
+          loadingtext: 'Bezig met laden',
+          emailLabel: 'Voer uw e-mailadres in (optioneel)',
+          linktext: 'hier',
+          PrivacyContent:
+            'we zullen het gebruiken om u een meer persoonlijke ondersteuning te geven. Door verder te gaan, erkent u dat u ons privacybeleid ',
+          PrivacyURL: PrivacyURLLink,
+        },
+        pl: {
+          buttonId: '5733X000000LlFp',
+          language: 'pl',
+          loadingtext: 'ładowanie',
+          emailLabel: 'Proszę wpisać adres email (opcjonalne)',
+          linktext: 'tutaj',
+          PrivacyContent:
+            'Użyjemy go, aby zapewnić Ci bardziej spersonalizowane wsparcie. Kontynuując, potwierdzasz, że przeczytałeś i zrozumiałeś naszą Politykę prywatności ',
+          PrivacyURL: '',
+        },
+      };
+
+      var livechatEnvObject =
+        window.vflivechat.live == 'prod'
+          ? livechatProdObject
+          : livechatStagingObject;
+      var livechatObject = livechatEnvObject['uk'];
+
+      window.vflivechat.buttonId = livechatObject.buttonId;
+      window.vflivechat.language = livechatObject.language;
+
+      window.vflivechat.PrivacyContent = livechatObject.PrivacyContent;
+      window.vflivechat.PrivacyURL = livechatObject.PrivacyURL;
+      window.vflivechat.linktext = livechatObject.linktext;
+      window.vflivechat.emailLabel = livechatObject.emailLabel;
+      window.vflivechat.loadingtext = livechatObject.loadingtext;
+
+      window.vflivechat.orgId =
+        window.vflivechat.live == 'prod'
+          ? '00Db0000000dbnM'
+          : '00D0D0000004ZzN';
+      window.vflivechat.deploymentId =
+        window.vflivechat.live == 'prod'
+          ? '572b00000000AQn'
+          : '572b00000000AQn';
+
+      window.vflivechat.baseLiveAgentURL =
+        window.vflivechat.live == 'prod'
+          ? 'https://d.la1-c1-cdg.salesforceliveagent.com/chat'
+          : 'https://d.la1-c1cs-fra.salesforceliveagent.com/chat';
+      window.vflivechat.baseLiveAgentContentURL =
+        window.vflivechat.live == 'prod'
+          ? 'https://c.la1-c1-cdg.salesforceliveagent.com/content'
+          : 'https://c.la1-c1cs-fra.salesforceliveagent.com/content';
+      window.vflivechat.SFURL_1 =
+        window.vflivechat.live == 'prod'
+          ? 'https://vfeurope.my.salesforce.com'
+          : 'https://vfeurope--QA.my.salesforce.com';
+      window.vflivechat.SFURL_2 =
+        window.vflivechat.live == 'prod'
+          ? 'https://vfc.secure.force.com/LiveChat'
+          : 'https://qa-vfc.cs106.force.com/LiveChat';
+      window.vflivechat.js_path =
+        window.vflivechat.live == 'prod'
+          ? 'https://vfeurope.my.salesforce.com/embeddedservice/5.0/esw.min.js'
+          : 'https://vfeurope--QA.my.salesforce.com/embeddedservice/5.0/esw.min.js';
+
+      console.log(
+        'LiveChat | Prod environment config: ' + window.vflivechat.live
+      );
+      console.log('LiveChat | OrgID: ' + window.vflivechat.orgId);
+      console.log('LiveChat | deploymentId: ' + window.vflivechat.deploymentId);
+      console.log('LiveChat | buttonId: ' + window.vflivechat.buttonId);
+      console.log('LiveChat | language: ' + window.vflivechat.language);
+      console.log(
+        'LiveChat | shopName: ' +
+          window.vflivechat.Country +
+          '-' +
+          window.vflivechat.language
+      );
+      console.log('LiveChat | pageType: ' + window.vflivechat.pageType);
+      console.log(
+        'LiveChat | GTM LU - Adjusted Country Code: ' +
+          window.vflivechat.Country
+      );
+
+      var initESW = function (gslbBaseURL) {
+        var chatBrand = 'KP';
+        var ChatLanguage = window.vflivechat.language;
+        var ChatOrigin =
+          window.vflivechat.Country + '-' + window.vflivechat.language;
+        var CustomerPageType = window.vflivechat.pageType;
+        var ChatbuttonId = window.vflivechat.buttonId;
+        var ChatdisplayMessage = 'Live Chat';
+        var EmailLabelMessage = window.vflivechat.emailLabel;
+        var loadingtext = window.vflivechat.loadingtext;
+
+        embedded_svc.settings.smallCompanyLogoImgURL =
+          'https://vfeurope.lightning.force.com/servlet/servlet.ImageServer?id=015TE000001Gm05&oid=00Db0000000dbnM';
+        embedded_svc.settings.avatarImgURL =
+          'https://vfeurope.lightning.force.com/servlet/servlet.ImageServer?id=0153X000006NA5i&oid=00Db0000000dbnM';
+        embedded_svc.settings.displayHelpButton = true;
+        embedded_svc.settings.language = ChatLanguage;
+        embedded_svc.settings.defaultMinimizedText = ChatdisplayMessage;
+
+        embedded_svc.settings.prepopulatedPrechatFields = {
+          FirstName: 'Visitor',
+          LastName: 'Chat',
+        };
+        embedded_svc.settings.extraPrechatFormDetails = [
+          { label: EmailLabelMessage, transcriptFields: ['Email__c'] },
+          { label: 'Brand', value: chatBrand, transcriptFields: ['Brand__c'] },
+          {
+            label: 'Visited Page',
+            value: CustomerPageType,
+            transcriptFields: ['Visited_Page__c'],
+          },
+          {
+            label: 'Chat Origin',
+            value: ChatOrigin,
+            transcriptFields: ['Chat_Origin__c'],
+          },
+          { label: 'ChatLanguage', value: ChatLanguage },
+        ];
+
+        embedded_svc.settings.extraPrechatInfo = [
+          {
+            entityFieldMaps: [
+              {
+                isExactMatch: true,
+                fieldName: 'PersonEmail',
+                doCreate: false,
+                doFind: true,
+                label: EmailLabelMessage,
+              },
+              {
+                isExactMatch: true,
+                fieldName: 'Brand__c',
+                doCreate: false,
+                doFind: true,
+                label: 'Brand',
+              },
+            ],
+            entityName: 'Account',
+            showOnCreate: true,
+            saveToTranscript: 'AccountId',
+          },
+          {
+            entityFieldMaps: [
+              {
+                doCreate: false,
+                doFind: false,
+                fieldName: 'LastName',
+                isExactMatch: true,
+                label: 'Last Name',
+              },
+              {
+                doCreate: false,
+                doFind: false,
+                fieldName: 'FirstName',
+                isExactMatch: true,
+                label: 'First Name',
+              },
+            ],
+            entityName: 'Contact',
+            showOnCreate: false,
+            saveToTranscript: '',
+          },
+          {
+            entityName: 'Case',
+            showOnCreate: false,
+            saveToTranscript: '',
+            entityFieldMaps: [
+              {
+                doCreate: false,
+                doFind: false,
+                fieldName: 'Email__c',
+                isExactMatch: true,
+                label: EmailLabelMessage,
+              },
+            ],
+          },
+        ];
+        //Sets the auto-population of pre-chat form fields
+        //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+        //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+        embedded_svc.settings.loadingText = loadingtext;
+        embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+        embedded_svc.settings.entryFeature = 'LiveAgent';
+
+        embedded_svc.init(
+          window.vflivechat.SFURL_1,
+          window.vflivechat.SFURL_2,
+          gslbBaseURL,
+          window.vflivechat.orgId,
+          'Embedded_Chat',
+          {
+            baseLiveAgentContentURL: window.vflivechat.baseLiveAgentContentURL,
+            deploymentId: window.vflivechat.deploymentId,
+            buttonId: window.vflivechat.buttonId,
+            baseLiveAgentURL: window.vflivechat.baseLiveAgentURL,
+            eswLiveAgentDevName:
+              'EmbeddedServiceLiveAgent_Parent04I3O0000008ONUUA2_173e7370ddd',
+            isOfflineSupportEnabled: false,
+          }
+        );
+      };
+
+      if (!window.embedded_svc) {
+        var s = document.createElement('script');
+        s.setAttribute('src', window.vflivechat.js_path);
+        s.onload = function () {
+          fireGAEvents();
+          initESW(null);
+        };
+        document.body.appendChild(s);
+      } else {
+        fireGAEvents();
+        initESW('https://service.force.com');
+      }
+
+      function fireGAEvents() {
+        window.vflivechatcontentshown = false;
+
+        embedded_svc.addEventHandler('afterMaximize', function (data) {
+          console.log('afterMaximize event was fired.');
+
+          if (window.vflivechatcontentshown == false) {
+            var x = document.getElementsByClassName(
+              'uiInput uiInputEmail uiInput--default uiInput--input'
+            );
+            console.log('uiInput uiInputEmail' + x.length);
+            var i;
+            if (
+              x.length == 1 &&
+              window.vflivechat.language != 'de' &&
+              window.vflivechat.language != 'nl_NL'
+            ) {
+              var dateSpan = document.createElement('span');
+              dateSpan.innerHTML = window.vflivechat.PrivacyContent;
+              var newA = document.createElement('a');
+              newA.setAttribute('href', window.vflivechat.PrivacyURL);
+              newA.setAttribute('target', '_blank');
+              newA.innerHTML = window.vflivechat.linktext;
+              dateSpan.appendChild(newA);
+              var htmlLabel = document.createElement('label');
+              htmlLabel.className = 'uiLabel-left form-element__label uiLabel';
+              htmlLabel.appendChild(dateSpan);
+              document
+                .getElementsByClassName(
+                  'uiInput uiInputEmail uiInput--default uiInput--input'
+                )[0]
+                .appendChild(htmlLabel);
+
+              window.vflivechatcontentshown = true;
+            } else if (
+              x.length == 1 &&
+              (window.vflivechat.language == 'de' ||
+                window.vflivechat.language == 'nl_NL')
+            ) {
+              var dateSpan = document.createElement('span');
+              dateSpan.innerHTML = window.vflivechat.PrivacyContent;
+              var newA = document.createElement('a');
+              newA.setAttribute('href', window.vflivechat.PrivacyURL);
+              newA.setAttribute('target', '_blank');
+              newA.innerHTML = window.vflivechat.linktext;
+              dateSpan.appendChild(newA);
+              console.log('appenChild event was fired.' + dateSpan);
+              var SpanAfter = document.createElement('span');
+              SpanAfter.innerHTML =
+                window.vflivechat.language == 'de'
+                  ? ' gelesen und verstanden haben'
+                  : ' hebt gelezen en begrepen';
+
+              dateSpan.appendChild(SpanAfter);
+              var htmlLabel = document.createElement('label');
+              htmlLabel.className = 'uiLabel-left form-element__label uiLabel';
+
+              htmlLabel.appendChild(dateSpan);
+              document
+                .getElementsByClassName(
+                  'uiInput uiInputEmail uiInput--default uiInput--input'
+                )[0]
+                .appendChild(htmlLabel);
+
+              window.vflivechatcontentshown = true;
+            }
+          }
+          //Logic for button availability
+        });
+      }
+    </script>
+  </body>
+</html>
